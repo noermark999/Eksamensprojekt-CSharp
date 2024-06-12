@@ -1,0 +1,31 @@
+﻿<Window x:Class="APITestWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:APITestWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Passenger" HorizontalAlignment="Left" Margin="76,52,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LblPassenger" Content="" HorizontalAlignment="Left" Margin="76,83,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="BtnPassenger" Content="Find Passenger" HorizontalAlignment="Left" Margin="76,137,0,0" VerticalAlignment="Top" Click="BtnPassenger_Click"/>
+        <TextBox x:Name="TbPassengerID" HorizontalAlignment="Left" Margin="76,114,0,0" TextWrapping="Wrap" Text="Passenger ID" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TbName" HorizontalAlignment="Left" Margin="537,40,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TbGender" HorizontalAlignment="Left" Margin="537,63,0,0" TextWrapping="Wrap" Text="Gender" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="DpBD" HorizontalAlignment="Left" Margin="537,86,0,0" VerticalAlignment="Top"/>
+        <Label Content="Post a passenger" HorizontalAlignment="Left" Margin="537,14,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TbFerryID" HorizontalAlignment="Left" Margin="537,115,0,0" TextWrapping="Wrap" Text="FerryID" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="BtnPostPassenger" Content="Post Passenger" HorizontalAlignment="Left" Margin="537,138,0,0" VerticalAlignment="Top" Click="BtnPostPassenger_Click"/>
+        <Label x:Name="LblPostPassenger" Content="" HorizontalAlignment="Left" Margin="537,163,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ferry" HorizontalAlignment="Left" Margin="76,196,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LblFerry" Content="" HorizontalAlignment="Left" Margin="76,227,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="BtnFerry" Content="Find Ferry" HorizontalAlignment="Left" Margin="76,281,0,0" VerticalAlignment="Top" Click="BtnFerry_Click"/>
+        <TextBox x:Name="TbGetFerryID" HorizontalAlignment="Left" Margin="76,258,0,0" TextWrapping="Wrap" Text="Ferry ID" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Find Passengers for ferry by id" HorizontalAlignment="Left" Margin="376,222,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TbPassengerListFerryID" HorizontalAlignment="Left" Margin="376,253,0,0" TextWrapping="Wrap" Text="Ferry ID" VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="ListBoxPassengers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="376,301,175,12"/>
+        <Button x:Name="BtnPassengers" Content="Find passengers" HorizontalAlignment="Left" Margin="376,276,0,0" VerticalAlignment="Top" Click="BtnPassengers_Click"/>
+
+    </Grid>
+</Window>

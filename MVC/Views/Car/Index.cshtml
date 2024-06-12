@@ -1,0 +1,53 @@
+﻿@model DTO.Model.Car
+
+@{
+                ViewBag.Title = "Index";
+                int? id = ViewBag.ID as int?;
+}
+
+<h2>Add Car</h2>
+
+@using (Html.BeginForm("AddCar", "Car", FormMethod.Post))
+{
+@Html.Hidden("FerryID", id)
+
+<p>
+    @Html.Label("Name:")
+    @Html.EditorFor(p => p.Name)
+    @Html.ValidationMessageFor(p => p.Name)
+</p>
+<p>
+    @Html.Label("Numberplate:")
+    @Html.EditorFor(p => p.Numberplate)
+    @Html.ValidationMessageFor(p => p.Numberplate)
+</p>
+
+<input type="submit" value="Add Car" />
+}
+
+<ul>
+    <p>Added Passengers:</p>
+    @foreach (DTO.Model.Passenger p in ViewBag.Passengers)
+                {
+    <li>@p</li>
+                }
+</ul>
+@using (Html.BeginForm("ClearList", "Car", FormMethod.Get))
+{
+    @Html.Hidden("id", id)
+    <input type="submit" value="Clear list" />
+}
+<ul>
+    <p>All Passengers:</p>
+    @foreach (DTO.Model.Passenger p in ViewBag.AllPassengers)
+                {
+    <li>@p  @Html.ActionLink("Add", "AddPassenger", "Car", new { p.PassengerID }, null)</li>
+                }
+</ul>
+
+@if (null != TempData["alertMessage"])
+   {
+<script type="text/javascript">
+       alert("@TempData["alertMessage"]");
+</script>
+   }

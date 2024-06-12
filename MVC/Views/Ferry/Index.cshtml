@@ -1,0 +1,14 @@
+﻿@model DTO.Model.Ferry
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ferries</h2>
+
+@foreach(DTO.Model.Ferry p in ViewBag.Ferrys)
+    {
+        @p
+        @Html.ActionLink("View Details", "FerryDetails", "Ferry", new { p.FerryID }, null)
+        <br />
+    }

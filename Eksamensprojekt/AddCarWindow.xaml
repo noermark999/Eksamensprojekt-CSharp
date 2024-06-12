@@ -1,0 +1,20 @@
+﻿<Window x:Class="Eksamensprojekt.AddCarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Eksamensprojekt"
+        mc:Ignorable="d"
+        Title="AddCarWindow" Height="365" Width="315">
+    <Grid>
+        <Button Content="AddCar" HorizontalAlignment="Center" Margin="0,279,0,0" VerticalAlignment="Top" Height="60" Width="107" Click="Button_Click"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="44,29,0,0" VerticalAlignment="Top"/>
+        <Label Content="Numberplate" HorizontalAlignment="Left" Margin="44,60,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="ListPassengers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,130,0,130"/>
+        <Label Content="Passengers for car" HorizontalAlignment="Left" Margin="0,99,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TbName" HorizontalAlignment="Left" Margin="146,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TbNumberplate" HorizontalAlignment="Left" Margin="146,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="BtnAddPassenger" Content="Add Passenger" HorizontalAlignment="Center" Margin="0,224,0,0" VerticalAlignment="Top" Width="97" Height="25" Click="BtnAddPassenger_Click"/>
+
+    </Grid>
+</Window>

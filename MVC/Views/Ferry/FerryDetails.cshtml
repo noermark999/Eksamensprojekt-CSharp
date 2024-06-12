@@ -1,0 +1,63 @@
+﻿@model DTO.Model.Ferry
+
+@{
+    ViewBag.Title = "FerryDetails";
+}
+
+<h2>FerryDetails</h2>
+
+@if (@Model != null)
+{
+    <p>Name: @Model.Name </p>
+    <p>Passengers: @Model.Passengers.Count </p>
+    <p>Cars: @Model.Cars.Count </p>
+    <p>Price: @ViewBag.FerryPrice </p>
+
+    using (Html.BeginForm("EditFerry", "Ferry", FormMethod.Post))
+    {
+        @Html.HiddenFor(p => p.FerryID)
+        @Html.HiddenFor(p => p.Name)
+        <p>
+            @Html.Label("Max Passengers")
+            @Html.TextBoxFor(p => p.MaxPassengers)
+            @Html.ValidationMessageFor(p => p.MaxPassengers)
+        </p>
+        <p>
+            @Html.Label("Max Cars")
+            @Html.TextBoxFor(p => p.MaxCars)
+            @Html.ValidationMessageFor(p => p.MaxCars)
+        </p>
+        <p>
+            @Html.Label("Price Passenger")
+            @Html.TextBoxFor(p => p.PricePassenger)
+        </p>
+        <p>
+            @Html.Label("Price Car")
+            @Html.TextBoxFor(p => p.PriceCar)
+        </p>
+        <input type="submit" value="Edit Ferry" />
+    }
+    <ul>
+        @foreach (DTO.Model.Passenger p in Model.Passengers)
+        {
+            <li>@p  @Html.ActionLink("Delete", "PassengerDelete", "Ferry", new { p.PassengerID }, null)</li>
+        }
+    </ul>
+
+    using (@Html.BeginRouteForm("Passenger", new { action = "Index", id = Model.FerryID }))
+    {
+        <input type="submit" value="Add Passenger" />
+    }
+
+    <ul>
+        @foreach (DTO.Model.Car c in Model.Cars)
+        {
+            <li>@c  @Html.ActionLink("Delete", "CarDelete", "Ferry", new { c.CarID }, null)</li>
+        }
+    </ul>
+
+    using (@Html.BeginRouteForm("Car", new { action = "Index", id = Model.FerryID }))
+    {
+        <input type="submit" value="Add Car" />
+    }
+}
